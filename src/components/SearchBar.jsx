@@ -1,11 +1,16 @@
-import react from "react";
-import Arrow from "./Arrow";
+import Arrow from './Arrow'
 
-function SearchBar() {
+function SearchBar(props) {
   return (
-    <div>
-      <input type="text" className="border-2 rounded-lg p-2 border-gray-600"/>
-      <Arrow/>
+    <div className="w-full">
+      <input
+        type="text"
+        className="w-1/5 border-2 rounded-lg p-2 border-gray-600"
+      />
+      <Arrow
+        setIsDropdownHidden={props.setIsDropdownHidden}
+        isDropdownHidden={props.isDropdownHidden}
+      />
     </div>
   )
 }

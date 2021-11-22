@@ -1,7 +1,12 @@
-
-function Arrow(){
+function Arrow(props) {
   return (
-    <p className="inline-block -ml-6 text-xs text-gray-700"> ▼</p>
+    <p
+      onClick={() => props.setIsDropdownHidden(!props.isDropdownHidden)}
+      className="cursor-pointer inline-block -ml-6 text-xs text-gray-700"
+    >
+      {' '}
+      ▼
+    </p>
   )
 }
 
