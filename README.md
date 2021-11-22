@@ -1,7 +1,3 @@
-# create-react-app & tailwind CSS template  
+# React Auto-complete Country Search Bar
 
-## Usage  
-- Clone / fork the repo.
-- Run ` npm i ` in the root dir.
-- run `npm start` to start the development server.
-- Your'e all set.
+This is a react component built for exercise porpuses.  
