@@ -10,6 +10,8 @@ function App() {
   const [isDropdownHidden, setIsDropdownHidden] = useState(true)
   const [inputValue, setInputValue] = useState('')
   const [matchingCountries, setMatchingCountries] = useState(countriesCopy)
+  const [searchBarText, setSearchBarText] = useState('')
+  const [selectedCountry, setSelectedCountry] = useState('')
 
   // Case insensitive
   const filterCountriesByInput = (input, countries) => {
@@ -19,14 +21,18 @@ function App() {
   }
   // watch for state updates by inputValue ONLY
   useEffect(() => {
-    console.log(inputValue)
+    console.log(searchBarText)
     // TODO: add filtering before display
-    setMatchingCountries(filterCountriesByInput(inputValue, countriesCopy))
+    setMatchingCountries(filterCountriesByInput(searchBarText, countriesCopy))
 
     if (isDropdownHidden) {
       setIsDropdownHidden(false)
     }
-  }, [inputValue])
+  }, [searchBarText])
+
+  useEffect(() => {
+    //tell searchbox to change its inner text
+  }, [selectedCountry])
 
   return (
     <div className="h-screen flex flex-col justify-center items-center bg-gray-300 App">
@@ -34,11 +40,18 @@ function App() {
         setIsDropdownHidden={setIsDropdownHidden}
         isDropdownHidden={isDropdownHidden}
         setInputValue={setInputValue}
+        searchBarText={searchBarText}
+        selectedCountry={selectedCountry}
+        setSearchBarText={setSearchBarText}
       />
       <Dropdown
         setIsDropdownHidden={setIsDropdownHidden}
         isDropdownHidden={isDropdownHidden}
         matchingCountries={matchingCountries}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+        setSearchBarText={setSearchBarText}
+        setSelectedCountry={setSelectedCountry}
       />
     </div>
   )

@@ -1,18 +1,27 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Arrow from './Arrow'
 
 function SearchBar(props) {
+  // const [text, setText] = useState('')
+  const inputEl = useRef(null)
+
+  const updateInputText = () => {
+    console.log(inputEl.current.value)
+    inputEl.current.value = props.inputValue
+  }
+
   useEffect(() => {
     console.log('effex')
+    inputEl.current.value = props.searchBarText
   })
-  const inputEl = useRef(null)
 
   return (
     <div className="w-full">
       <input
         ref={inputEl}
         onChange={() => {
-          props.setInputValue(inputEl.current.value)
+          // setText(inputEl.current.value)
+          props.setSearchBarText(inputEl.current.value)
         }}
         type="text"
         className="w-1/5 border-2 rounded-lg p-2 border-gray-600"
