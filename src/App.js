@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import Dropdown from './Dropdown'
+import Dropdown from './components/Dropdown'
 import SearchBar from './components/SearchBar'
 import countries from './assets/countries.json'
 
@@ -11,9 +11,10 @@ function App() {
   const [inputValue, setInputValue] = useState('')
   const [matchingCountries, setMatchingCountries] = useState(countriesCopy)
 
+  // Case insensitive
   const filterCountriesByInput = (input, countries) => {
     return countries.filter((country) => {
-      return country.name.includes(input)
+      return country.name.toLowerCase().includes(input.toLowerCase())
     })
   }
   // watch for state updates by inputValue ONLY
