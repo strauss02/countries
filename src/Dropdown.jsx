@@ -11,11 +11,13 @@ function Dropdown(props) {
     }
   })
   return (
-    <ul className=" bg-white w-1/5  -mr-4 rounded-xl" ref={dropdown}>
-      <li>Volvo</li>
-      <li>Saab</li>
-      <li>Mercedes</li>
-      <li>Audi</li>
+    <ul
+      className=" bg-white w-1/5  h-40 overflow-scroll -mr-4 rounded-xl"
+      ref={dropdown}
+    >
+      {props.matchingCountries.map((country) => {
+        return <li key={country.name}> {country.name} </li>
+      })}
     </ul>
   )
 }
